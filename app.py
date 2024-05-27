@@ -1,6 +1,5 @@
 import streamlit as st
 from dotenv import load_dotenv
-import pickle
 from PyPDF2 import PdfReader
 from langchain_openai import OpenAIEmbeddings
 import langchain.vectorstores as vs
@@ -58,20 +57,14 @@ def main():
         if os.path.exists(f"{store_name}.pkl"):
             embeddings = OpenAIEmbeddings()
             VectorStore = FAISS.load_local("faiss_index", embeddings)
-            #with open(f"{store_name}.pkl", "rb") as f:
-            #    VectorStore = pickle.load(f)
-            #st.write('Embeddings Loaded from the Disk')
         else:
             embeddings = OpenAIEmbeddings()
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
             VectorStore.save_local(f"{store_name}") 
-            #with open(f"{store_name}.pkl", "wb") as f:
-            #    pickle.dump(VectorStore, f)
  
 
         # Accept user questions/query
         query = st.text_input("Ask questions about your PDF file:")
-        # st.write(query)
  
         if query:
             docs = VectorStore.similarity_search(query=query, k=3)
