@@ -2,7 +2,6 @@ import streamlit as st
 from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain_openai import OpenAIEmbeddings
-import langchain.vectorstores as vs
 from streamlit_extras.add_vertical_space import add_vertical_space
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
@@ -23,13 +22,12 @@ with st.sidebar:
  
     ''')
     add_vertical_space(5)
-    st.write('This is my linkedin: (https://www.linkedin.com/in/tanviralamsyed/)')
+    st.write('This is my linkedin🤗: (https://www.linkedin.com/in/tanviralamsyed/)')
  
-load_dotenv()
+load_dotenv() #loads the .env file details
  
 def main():
-    st.header("Chat with PDF 💬")
- 
+    st.header("Chat with your PDF💬")
  
     # upload a PDF file
     pdf = st.file_uploader("Upload your PDF", type='pdf')
@@ -56,7 +54,7 @@ def main():
         
         if os.path.exists(f"{store_name}.pkl"):
             embeddings = OpenAIEmbeddings()
-            VectorStore = FAISS.load_local("faiss_index", embeddings)
+            VectorStore = FAISS.load_local(f"{store_name}", embeddings)
         else:
             embeddings = OpenAIEmbeddings()
             VectorStore = FAISS.from_texts(chunks, embedding=embeddings)
