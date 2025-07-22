@@ -24,21 +24,26 @@ Clone the Repository (Optional):
 - If you have git, you can clone the project files.
 
 Bash
-
+'''
 git clone <your-repository-url>
 cd <repository-directory>
-Install Dependencies:
-Open your terminal and run the following command to install the necessary Python libraries from the requirements.txt file.
+'''
+## Install Dependencies:
+- Open your terminal and run the following command to install the necessary Python libraries from the requirements.txt file.
 
 Bash
 
+'''
 pip install -r requirements.txt
-Set Up Your API Key:
-You will need to set your OpenAI API key as an environment variable or directly in the code as instructed within the application's files.
+'''
 
-Run the App:
+## Set Up Your API Key:
+- You will need to set your OpenAI API key as an environment variable or directly in the code as instructed within the application's files.
+
+## Run the App:
 Execute the following command in your terminal. Streamlit will start the application and provide a local URL to open in your web browser.
 
 Bash
-
+'''
 streamlit run app.py
+'''
