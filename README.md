@@ -23,18 +23,15 @@ Before you begin, ensure you have the following:
 Clone the Repository (Optional):
 - If you have git, you can clone the project files.
 
-Bash
-'''
+
+'''bash
 git clone <your-repository-url>
 cd <repository-directory>
 '''
 ## Install Dependencies:
 - Open your terminal and run the following command to install the necessary Python libraries from the requirements.txt file.
 
-
-
-'''
-Bash
+'''bash
 pip install -r requirements.txt
 '''
 
@@ -43,9 +40,7 @@ pip install -r requirements.txt
 
 ## Run the App:
 - Execute the following command in your terminal. Streamlit will start the application and provide a local URL to open in your web browser.
-
-
-''' 
-Bash
+  
+'''bash
 streamlit run app.py
 '''
