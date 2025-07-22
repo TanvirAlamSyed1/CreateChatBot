@@ -44,3 +44,8 @@ pip install -r requirements.txt
 '''bash
 streamlit run app.py
 '''
+
+```bash
+   python main.py
+   # or if you have the .exe file, just click the file!
+   ```
